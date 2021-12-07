@@ -6,6 +6,10 @@ Node.js 10+
 
 ## Running 
 
+```
+npm i 
+```
+
 Run challenge normally
 ```
 npm start -- --challenge={challengeNumber} 
