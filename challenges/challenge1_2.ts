@@ -6,9 +6,12 @@ export const solve = async (testMode = false) => {
   const data = await processInput(fileName);
 
   return data.reduce((acc, current, index) => {
-    const previousValue = data[index - 1];
+    const pivot = current + data[index + 1];
 
-    if (current > previousValue) {
+    const currentGroup = pivot + data[index + 2];
+    const previousGroup = pivot + data[index - 1];
+
+    if (currentGroup > previousGroup) {
       acc += 1;
     }
     return acc;

@@ -9,7 +9,7 @@ type Challenge = {
     .option("challenge", {
       alias: "c",
       demand: true,
-      type: "number",
+      type: "string",
     })
     .option("test", {
       alias: "t",
@@ -23,6 +23,5 @@ type Challenge = {
     `./challenges/challenge${challengeNumber}`
   );
 
-  console.log({ test: args.test });
   console.log(await challenge.solve(args.test));
 })();
