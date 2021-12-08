@@ -1,10 +1,24 @@
+import { TransformType } from "../types";
 import { readFile } from "./../utils/utils";
 
-export const processInput = async (fileName: string) => {
-  const transformFunction = (value: string) => parseInt(value.trim());
+const transformFunctions: {
+  [key in TransformType]: (value: string) => unknown;
+} = {
+  generic: (value: string) => parseInt(value.trim()),
+  tuple: (value: string) => {
+    return { ...value.trim().split(" ") };
+  },
+};
 
-  const { data } = await readFile<number>(
-    __dirname + fileName,
+export const processInput = async <T>(
+  fileName: string,
+  day: number,
+  transformType: TransformType = "generic"
+) => {
+  const transformFunction = transformFunctions[transformType];
+
+  const { data } = await readFile<T>(
+    __dirname + `/day${day}/` + fileName,
     transformFunction
   );
 

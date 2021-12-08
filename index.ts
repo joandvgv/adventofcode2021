@@ -19,8 +19,10 @@ type Challenge = {
 
   const challengeNumber = args.challenge;
 
+  const [day] = challengeNumber.split("_");
+
   const challenge: Challenge = await import(
-    `./challenges/challenge${challengeNumber}`
+    `./challenges/day${day}/challenge${challengeNumber}`
   );
 
   console.log(await challenge.solve(args.test));
