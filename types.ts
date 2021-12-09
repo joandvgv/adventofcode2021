@@ -1,1 +1,1 @@
-export type TransformType = "generic" | "tuple";
+export type TransformType = "generic" | "tuple" | "binary";

@@ -8,6 +8,7 @@ const transformFunctions: {
   tuple: (value: string) => {
     return { ...value.trim().split(" ") };
   },
+  binary: (value: string) => value.trim().split(""),
 };
 
 export const processInput = async <T>(
